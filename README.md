@@ -8,7 +8,7 @@ Production Heroku App: [http://du-admin.herokuapp.com](http://du-admin.herokuapp
 
 Staging Heroku App: [http://du-admin-staging.herokuapp.com](http://du-admin-staging.herokuapp.com)
 
-## Labor Info ##
+## Labor ##
 
 50/50 Split between:
 
