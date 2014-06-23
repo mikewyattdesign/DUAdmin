@@ -4,9 +4,38 @@ Admin application for the Discover Unfiltered contest.  Entries are aggregated f
 
 ## Application Links ##
 
-Production Heroku App: [http://du-admin.herokuapp.com](http://du-admin.herokuapp.com)
+### Production (on Heroku) ###
 
-Staging Heroku App: [http://du-admin-staging.herokuapp.com](http://du-admin-staging.herokuapp.com)
+* App: [http://du-admin.herokuapp.com](http://du-admin.herokuapp.com)
+* Git: [git@heroku.com:du-admin.git](git@heroku.com:du-admin.git)
+
+### Staging (on Heroku) ###
+
+* App: [http://du-admin-staging.herokuapp.com](http://du-admin-staging.herokuapp.com)
+* Git: [git@heroku.com:du-admin-staging.git](git@heroku.com:du-admin-staging.git)
+
+## Deployment ##
+### Development to Staging ###
+Push to the master branch of the staging remote repository as usual.
+
+```
+#!shell
+
+git push master staging
+```
+
+
+
+### Staging to Production ###
+Promote the staging app to production.
+
+
+```
+#!shell
+
+heroku pipeline:promote -a du-admin-staging
+```
+
 
 ## Labor ##
 
