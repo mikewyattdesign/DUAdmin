@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -53,4 +55,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :api, defaults: {format: 'json', path: '/'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      post 'warriordash' => 'warrior_dash#create'
+    end
+  end
 end
