@@ -43,3 +43,37 @@ heroku pipeline:promote -a du-admin-staging
 
 * 704887 (Shock Top Warrior Dash App)
 * 705507 (Shock Top DU Facebook App)
+
+## Warrior Dash POST JSON ##
+The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint in the following format:
+
+{
+    #{guid1}: {
+        "entrant": {
+            "name": "#{name}",
+            "phone": "#{phone}",
+            "email": "#{email}",
+            "birthdate": "#{birthdate}",
+            "street_address": "#{street_address}",
+            "zipcode": "#{zipcode}"
+        },
+        "entry": {
+            "s3_uri": "#{s3_uri}",
+            "date_created": "#{date_created}"
+        }
+    },
+    #{guidX}: {
+        "entrant": {
+            "name": "#{name}",
+            "phone": "#{phone}",
+            "email": "#{email}",
+            "birthdate": "#{birthdate}",
+            "street_address": "#{street_address}",
+            "zipcode": "#{zipcode}"
+        },
+        "entry": {
+            "s3_uri": "#{s3_uri}",
+            "date_created": "#{date_created}"
+        }
+    }
+}
