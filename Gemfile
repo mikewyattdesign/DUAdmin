@@ -48,7 +48,7 @@ end
 
 group :development, :test do
     # RSpec gives a good testing framework
-    gem 'rspec-rails', '3.0.1'
+    gem 'rspec-rails', '2.99'
 
     # FactoryGirl makes creating stubs, test models, etc. easier
     gem 'factory_girl_rails', '4.4.1'
