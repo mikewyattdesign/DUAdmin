@@ -36,6 +36,9 @@ group :development do
     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
     gem 'spring'
 
+    # Although Spring is awesome, on occasion it is frustrating to have a test fail b/c you forgot to stop spring. Enter spring-commands-rspec
+    gem 'spring-commands-rspec'
+
     # Better Errors provides us with a full interactive stack trace
     gem 'better_errors', '1.1.0'
 
