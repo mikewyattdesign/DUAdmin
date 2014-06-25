@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625185932) do
+ActiveRecord::Schema.define(version: 20140625204803) do
 
   create_table "entrants", force: true do |t|
     t.string   "guid"
@@ -24,5 +24,21 @@ ActiveRecord::Schema.define(version: 20140625185932) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "entries", force: true do |t|
+    t.integer  "entrant_id"
+    t.string   "entrant_guid"
+    t.string   "s3_uri"
+    t.date     "date_created"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.boolean  "processed",          default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["entrant_id"], name: "index_entries_on_entrant_id"
 
 end
