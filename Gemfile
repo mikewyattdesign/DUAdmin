@@ -50,6 +50,9 @@ group :development, :test do
     # RSpec gives a good testing framework
     gem 'rspec-rails', '2.99'
 
+    # Rspec collection matchers simplify model validation testing syntax
+    gem 'rspec-collection_matchers', '1.0.0'
+
     # FactoryGirl makes creating stubs, test models, etc. easier
     gem 'factory_girl_rails', '4.4.1'
 

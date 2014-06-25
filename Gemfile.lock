@@ -249,6 +249,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails_12factor
   rollbar (= 0.12.20)
+  rspec-collection_matchers (= 1.0.0)
   rspec-rails (= 2.99)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
