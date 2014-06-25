@@ -47,6 +47,9 @@ heroku pipeline:promote -a du-admin-staging
 ## Warrior Dash POST JSON ##
 The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint in the following format:
 
+```
+#!json
+
 {
     #{guid1}: {
         "entrant": {
@@ -77,3 +80,7 @@ The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint
         }
     }
 }
+
+```
+
+the same format probably can be used for Facebook submissions as well. In theory, the format can allow a single endpoint to be used for Warrior Dash iPad submissions and Facebook app submissions.
