@@ -1,4 +1,4 @@
-# app/validators/email_validator.rb
+# app/validators/phone_validator.rb
 
 class PhoneValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
