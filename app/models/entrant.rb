@@ -6,6 +6,8 @@ class Entrant < ActiveRecord::Base
     validates :email, presence: true, email: true
     validate :cannot_be_a_minor
 
+    has_many :entries
+
     def cannot_be_a_minor
         if birthdate.present? && birthdate > AGE_OF_RESPONSIBILITY.years.ago
             errors[:birthdate] << "Not old enough"

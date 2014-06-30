@@ -57,4 +57,8 @@ describe Entrant do
   it 'is invalid without a zipcode' do 
     expect(build(:entrant, zipcode: nil)).to have(1).errors_on(:zipcode)
   end
+
+  it 'responds to entries' do
+    expect(build(:entrant)).to respond_to(:entries)
+  end
 end
