@@ -67,4 +67,15 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/v/3-0/docs
   config.infer_spec_type_from_file_location!
+
+  # Lint Factories before each test run to make sure we don't have invalid factories (which would be tragic)
+  config.before(:suite) do
+    FactoryGirl.lint
+  end
+
+  # delete test files after the test suite runs
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
+  end
+
 end

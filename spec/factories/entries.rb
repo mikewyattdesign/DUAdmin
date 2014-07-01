@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :entry do
-    entrant nil
-    entrant_guid "MyString"
-    s3_uri "MyString"
-    date_created "2014-06-25"
+    entrant
+    entrant_guid { entrant.guid }
+    sequence(:s3_uri){|n| "https://s3.amazonaws.com/shocktop-du-staging/test/IMG_000#{n%3}.MOV"}
+    date_created { 1.day.ago }
   end
 end

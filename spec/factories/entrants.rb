@@ -4,11 +4,11 @@ require 'faker'
 
 FactoryGirl.define do
   factory :entrant do
-    guid "MyString"
+    guid {SecureRandom.uuid}
     name {Faker::Name.name}
     phone {Faker::PhoneNumber.phone_number}
     email {Faker::Internet.safe_email}
-    birthdate "1992-06-25"
+    birthdate { 21.years.ago }
     street_address {Faker::Address.street_address}
     zipcode {Faker::Address.zip_code}
   end
