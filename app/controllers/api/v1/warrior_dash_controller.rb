@@ -5,7 +5,10 @@ module Api
 
             # POST /api/warriordash
             def create
-                head :ok
+                data = params[:warrior_dash]
+                submission = EntryForm.new(data)
+                submission.process
+                render json: submission.result.to_json, status: 201
             end
 
         end

@@ -87,6 +87,14 @@ class EntryForm
         end
     end
 
+    def result
+        {
+            entries: @entries,
+            entrants: @entrants,
+            stats: @stats
+        }
+    end
+
     # Validations
     def not_empty
         if @data.length == 0
