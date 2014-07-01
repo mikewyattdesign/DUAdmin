@@ -13,4 +13,8 @@ describe Entry do
   it 'defaults to not being processed' do
     expect(build(:entry).processed).to be_falsey
   end
+
+  it 'responds to a video' do
+    expect(build(:entry)).to respond_to(:video)
+  end
 end

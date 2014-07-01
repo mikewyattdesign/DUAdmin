@@ -32,6 +32,9 @@ gem 'paperclip', '4.1.1'
 # Paperclip-ffmpeg gives us the ability to create a poster from video content
 gem 'paperclip-ffmpeg', '1.2.0'
 
+# Use Delayed Job for background processing
+gem 'delayed_job_active_record', '4.0.1'
+
 group :development do
     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
     gem 'spring'
@@ -67,6 +70,9 @@ group :development, :test do
 
     # SQLite3 is convenient to use as the ActiveRecord db in development and testing
     gem 'sqlite3'
+    
+    # Use daemons for delayed job in development
+    gem 'daemons', '1.1.9'
 end
 
 group :test do
@@ -93,17 +99,14 @@ group :production do
     # Postgresql is used on Heroku
     gem 'pg'
 
-    # Unicorn is a Rack HTTP Server that makes scaling easier
-
-
     # Rails 12 Factor application plugin alters config to work on Heroku among other things. Read more: http://12factor.net
     gem 'rails_12factor'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+Use unicorn as the app server
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
