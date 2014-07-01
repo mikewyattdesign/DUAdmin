@@ -6,7 +6,20 @@ gem 'rails', '4.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Twitter Bootstrap for styling
-gem 'bootstrap-sass', '3.1.1.1'
+# gem 'bootstrap-sass', '3.1.1.1'
+
+# Use Bourbon for Sass mixins
+gem 'bourbon'
+
+# Use Neat for a lightweight grid framework
+gem 'neat'
+
+# Use bitters for scaffolding, variables and such
+gem 'bitters'
+
+# Use Refills for component patterns
+gem 'refills'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
