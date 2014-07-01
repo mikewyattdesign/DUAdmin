@@ -17,4 +17,10 @@ describe Entry do
   it 'responds to a video' do
     expect(build(:entry)).to respond_to(:video)
   end
+
+  it 'can generate a thumbnail' do
+    entry = create(:entry)
+    entry.process
+    expect(entry.video.url(:thumb)).to_not be_nil
+  end
 end
