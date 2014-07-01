@@ -69,6 +69,7 @@ class EntryForm
                 entry.date_created = value[:entry][:date_created]
                 entry.entrant_id = entrant.id
                 if entry.save
+                    entry.queue_processing
                     @stats[:entries][:created] += 1
                     @entries.push(entry)
                 else
@@ -78,6 +79,7 @@ class EntryForm
                 entry.update(s3_uri: value[:entry][:s3_uri],
                     date_created: value[:entry][:date_created], entrant_id: entrant.id)
                 if entry.valid?
+                    entry.queue_processing
                     @stats[:entries][:updated] += 1
                     @entries.push(entry)
                 else
