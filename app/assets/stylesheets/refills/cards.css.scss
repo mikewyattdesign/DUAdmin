@@ -22,8 +22,8 @@
   position: relative;
 
   @include media($large-screen) {
-    @include span-columns(2);  
-    @include omega(6n);
+    @include span-columns(3);  
+    @include omega(4n);
   }
 
   .card-image {

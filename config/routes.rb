@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'entries#index'
 
-  resources :entries
+  resources :entries do
+    member do
+      post 'rate'
+      post 'decline'
+      post 'approve'
+      post 'favorite'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
