@@ -1,0 +1,11 @@
+<article class="entry" data-entry-id="<%= @entry.id %>">
+    <%= video_tag @entry.s3_uri, controls: true, autobuffer: true, poster: @entry.video.url(:thumb), class: "entry-video"   %>
+    <h2><%= @entry.entrant.name %></h2>
+    <div class="stats"></div>
+    <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %></p>
+</article>
+<aside class="related-entries">
+    <% @entries.each do |entry| %>
+        <%= render 'entry_card', entry: entry %>
+    <% end %>
+</aside>

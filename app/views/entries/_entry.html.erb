@@ -1,4 +1,4 @@
-<div class="card entry" data-entry-id="<%= entry.id %>">    
+<%= link_to entry, class: "card entry", data: {entry_id: entry.id} do %>    
     <div class="card-image">
         <%= image_tag entry.video.url(:thumb), class: "entry-poster img-responsive" %>
     </div>
@@ -6,4 +6,4 @@
     <div class="card-copy">
         <p class="entry-time"><%= time_ago_in_words(entry.date_created) %> ago</p>
     </div>
-</div>
+<% end %>

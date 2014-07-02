@@ -1,0 +1,7 @@
+<div class="comment">
+    <%= link_to image_tag(entry.video.url(:thumb)), entry, class: "comment-image" %>
+    <div class="comment-content">
+        <h1><%= entry.entrant.name %></h1>
+        <p class="comment-detail"><%= time_ago_in_words(entry.date_created) %> ago</p>
+    </div>
+</div>

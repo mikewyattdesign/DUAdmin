@@ -27,5 +27,19 @@ feature "Video Browsing" do
                 page.should have_css("[data-entry-id='#{entry.id}'] img.entry-poster")
             end
         end
+
+        scenario "Admin views individual video" do
+            # Choose an entry to inspect at random
+            entry_id = Entry.all.pluck(:id).sample
+            entry = Entry.find(entry_id)
+
+            visit root_path
+            
+            # Click on the entry
+            find("a[data-entry-id='#{entry.id}']").click
+            
+            expect(current_path).to eq(entry_path(entry))
+            page.should have_css("[data-entry-id='#{entry.id}'] video")            
+        end
     end
 end
