@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       post 'favorite'
     end
   end
+
+  get '/entries/rating/:rating' => 'entries#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

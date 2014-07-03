@@ -2,5 +2,14 @@
   <div class="menu-wrapper">
       <%= link_to image_tag('logo_header.png'), root_path, class: "logo" %>
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><%= link_to "Pending", "/entries/rating/unjudged" %></li>
+        <li><%= link_to "Declined", "/entries/rating/declined" %></li>
+        <li><%= link_to "Approved", "/entries/rating/approved" %></li>
+        <li><%= link_to "Favorited", "/entries/rating/favorited" %></li>
+        <li><%= link_to "All", "/entries" %></li>
+      </ul>
+    </div>
   </div>
 </header>

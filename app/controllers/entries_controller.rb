@@ -1,6 +1,16 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all.includes(:entrant).order(date_created: :desc)
+        if params[:rating]
+            if Entry.ratings.include?(params[:rating])
+                rating = Entry.ratings["#{params[:rating]}"]
+                @entries = Entry.where(rating: rating).includes(:entrant).order(date_created: :desc)
+            else    
+                @entries = Entry.all
+            end
+            # render text: params[:rating]
+        else 
+            @entries = Entry.all.includes(:entrant).order(date_created: :desc)
+        end
         @numEntries = @entries.count
     end
 
