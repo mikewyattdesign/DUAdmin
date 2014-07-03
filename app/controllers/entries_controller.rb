@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
     def index
-        @entries = Entry.all.includes(:entrant)
+        @entries = Entry.all.includes(:entrant).order(date_created: :desc)
         @numEntries = @entries.count
     end
 

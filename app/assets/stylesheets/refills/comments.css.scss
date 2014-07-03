@@ -58,3 +58,9 @@
   }
 }
 
+a.comment {
+  color: inherit;
+  &:hover {
+    color: $hover-link-color;
+  }
+}

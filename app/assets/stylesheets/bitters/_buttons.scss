@@ -7,4 +7,27 @@ input[type="submit"] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+
+  &.inactive {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+  }
+}
+
+button.btn-red, input[type="submit"].btn-red  {
+    background-color: lighten($dark-red, 10%); 
+    
+    &:hover{
+        background-color: $dark-red;
+    } 
+}
+button.btn-green, input[type="submit"].btn-green {
+    background-color: lighten($dark-green, 10%); 
+    &:hover{
+        background-color: $dark-green;
+    } 
+
 }

@@ -1,4 +1,9 @@
 <%= link_to entry, class: "card entry", data: {entry_id: entry.id} do %>    
+    <% if entry.favorited? %>
+        <div class="ribbon-wrapper">
+            <div class="ribbon favorite">FAVORITE</div>
+        </div>
+    <% end %>
     <div class="card-image">
         <%= image_tag entry.video.url(:thumb), class: "entry-poster img-responsive" %>
     </div>

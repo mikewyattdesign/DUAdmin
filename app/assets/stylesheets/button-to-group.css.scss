@@ -1,0 +1,5 @@
+.button-to-group {
+    & > form {
+        display: inline-block;
+    }
+}
