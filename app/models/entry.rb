@@ -6,6 +6,8 @@ class Entry < ActiveRecord::Base
 
     enum rating: {declined: -1, unjudged: 0, approved: 1, favorited: 2 }
 
+    default_scope { where('entrant_id IS NOT NULL') }
+
     def process
         self.video = s3_uri
         video.reprocess!
