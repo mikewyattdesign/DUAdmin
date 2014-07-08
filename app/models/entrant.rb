@@ -4,13 +4,10 @@ class Entrant < ActiveRecord::Base
     validates_presence_of :name, :birthdate, :street_address, :zipcode
     validates :phone, presence: true, phone: true
     validates :email, presence: true, email: true
-    validate :cannot_be_a_minor
 
     has_many :entries
 
-    def cannot_be_a_minor
-        if birthdate.present? && birthdate > AGE_OF_RESPONSIBILITY.years.ago
-            errors[:birthdate] << "Not old enough"
-        end
+    def underage?
+        birthdate.present? && birthdate > AGE_OF_RESPONSIBILITY.years.ago
     end
 end
