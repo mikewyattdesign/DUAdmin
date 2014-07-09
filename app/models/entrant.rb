@@ -3,7 +3,7 @@ class Entrant < ActiveRecord::Base
 
     validates_presence_of :name, :birthdate, :street_address, :zipcode
     validates :phone, presence: true, phone: true
-    validates :email, presence: true, email: true
+    validates :email, presence: true
 
     has_many :entries
 

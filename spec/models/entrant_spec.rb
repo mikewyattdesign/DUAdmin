@@ -27,9 +27,6 @@ describe Entrant do
   it 'is invalid without an email' do
     expect(build(:entrant, email: nil)).to have_at_least(1).errors_on(:email)
   end
-  it 'is invalid with an invalid email' do
-    expect(build(:entrant, email: "mike")).to have(1).errors_on(:email)
-  end
 
   # Birthdate
   it 'is valid with a valid date of birth' do
