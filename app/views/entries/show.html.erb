@@ -1,7 +1,7 @@
 <article class="entry" data-entry-id="<%= @entry.id %>">
     <%= video_tag @entry.s3_uri, controls: true, autobuffer: true, poster: @entry.video.url(:thumb), class: "entry-video"   %>
     <h2 class="entrant-name">
-        <%= @entry.entrant.name %> 
+        <%= @entry.entrant.name %>
         <% if @entry.entrant.underage? %>
             <span class="badge error">Underage</span>
         <% end %>
@@ -12,7 +12,11 @@
         <%= button_to "Approve#{'d' if @entry.approved?}", approve_entry_path, class: "#{'inactive' unless @entry.approved?}", disabled: @entry.approved? %>
         <%= button_to "Favorite#{'d' if @entry.favorited?}", favorite_entry_path, class: "btn-green #{'inactive' unless @entry.favorited?}", disabled: @entry.favorited? %>
     </div>
-    <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %></p>
+    <% if entry.date_created.present? %>
+        <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %></p>
+    <% else %>
+        <p class="published-date">Submitted on <%= @entry.created_at.strftime("%A, %B %-d, %Y") %></p>
+    <% end %>
 </article>
 <aside class="related-entries">
     <% @entries.each do |entry| %>

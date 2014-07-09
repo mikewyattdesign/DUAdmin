@@ -4,6 +4,10 @@
     </div>
     <div class="comment-content">
         <h1><%= entry.entrant.name %></h1>
-        <p class="comment-detail"><%= time_ago_in_words(entry.date_created) %> ago</p>
+        <% if entry.date_created.present? %>
+            <p class="comment-detail"><%= time_ago_in_words(entry.date_created) %> ago</p>
+        <% else %>
+            <p class="comment-detail"><%= time_ago_in_words(entry.created_at) %> ago</p>
+        <% end %>
     </div>
 <% end %>
