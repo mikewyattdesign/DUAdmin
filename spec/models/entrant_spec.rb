@@ -38,8 +38,12 @@ describe Entrant do
   it 'is invalid without a date of birth' do
     expect(build(:entrant, birthdate: nil)).to have(1).errors_on(:birthdate)
   end
-  it 'is invalid with an invalid date of birth' do 
-    expect(build(:entrant, birthdate: Date.today)).to have(1).errors_on(:birthdate)
+  it 'knows when it is underage' do 
+    expect(build(:entrant, birthdate: Date.today).underage?).to be_truthy
+  end
+
+  it 'knows when it is not underage' do
+    expect(build(:entrant).underage?).to be_falsey
   end
 
   # Street Address

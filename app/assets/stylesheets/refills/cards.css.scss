@@ -66,6 +66,9 @@
         background-color: $dark-green;
       }
 
+      &.underage {
+        background-color: $dark-red;
+      }
     }
   }
 

@@ -1,6 +1,12 @@
 <article class="entry" data-entry-id="<%= @entry.id %>">
     <%= video_tag @entry.s3_uri, controls: true, autobuffer: true, poster: @entry.video.url(:thumb), class: "entry-video"   %>
-    <h2><%= @entry.entrant.name %></h2>
+    <h2 class="entrant-name">
+        <%= @entry.entrant.name %> 
+        <% if @entry.entrant.underage? %>
+            <span class="badge error">Underage</span>
+        <% end %>
+    </h2>
+
     <div class="entry-actions actions button-to-group">
         <%= button_to "Decline#{'d' if @entry.declined?}", decline_entry_path, class: "btn-red #{'inactive' unless @entry.declined?}", disabled: @entry.declined? %>
         <%= button_to "Approve#{'d' if @entry.approved?}", approve_entry_path, class: "#{'inactive' unless @entry.approved?}", disabled: @entry.approved? %>
