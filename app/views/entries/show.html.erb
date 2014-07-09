@@ -12,7 +12,7 @@
         <%= button_to "Approve#{'d' if @entry.approved?}", approve_entry_path, class: "#{'inactive' unless @entry.approved?}", disabled: @entry.approved? %>
         <%= button_to "Favorite#{'d' if @entry.favorited?}", favorite_entry_path, class: "btn-green #{'inactive' unless @entry.favorited?}", disabled: @entry.favorited? %>
     </div>
-    <% if entry.date_created.present? %>
+    <% if @entry.date_created.present? %>
         <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %></p>
     <% else %>
         <p class="published-date">Submitted on <%= @entry.created_at.strftime("%A, %B %-d, %Y") %></p>
