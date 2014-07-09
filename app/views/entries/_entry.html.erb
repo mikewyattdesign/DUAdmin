@@ -1,4 +1,4 @@
-<%= link_to entry, class: "card entry", data: {entry_id: entry.id} do %>    
+<%= link_to entry, class: "card entry", data: {entry_id: entry.id} do %>
     <% if entry.favorited? %>
         <div class="ribbon-wrapper">
             <div class="ribbon favorite">FAVORITE</div>
@@ -9,6 +9,12 @@
     </div>
     <div class="card-header entrant-name"><%= entry.entrant.name %></div>
     <div class="card-copy">
-        <p class="entry-time"><%= time_ago_in_words(entry.date_created) %> ago</p>
+        <p class="entry-time">
+            <% if entry.date_created.present? %>
+                <%= time_ago_in_words(entry.date_created) %> ago
+            <% else %>
+                <%= time_ago_in_words(entry.created_at) %> ago
+            <% end %>
+        </p>
     </div>
 <% end %>
