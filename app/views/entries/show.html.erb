@@ -1,5 +1,5 @@
 <article class="entry" data-entry-id="<%= @entry.id %>">
-    <%= video_tag @entry.s3_uri, controls: true, autobuffer: true, poster: @entry.video.url(:thumb), class: "entry-video"   %>
+    <%= video_tag @entry.s3_uri, controls: true, autobuffer: true, poster: @entry.video.url(:thumb), autoplay: true, class: "entry-video"   %>
     <div class="entry-actions actions button-to-group">
         <%= button_to "Decline#{'d' if @entry.declined?}", decline_entry_path, class: "btn-red #{'inactive' unless @entry.declined?}", disabled: @entry.declined? %>
         <%= button_to "Approve#{'d' if @entry.approved?}", approve_entry_path, class: "#{'inactive' unless @entry.approved?}", disabled: @entry.approved? %>
