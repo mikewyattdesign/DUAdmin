@@ -1,0 +1,14 @@
+.entry-actions {
+    float: right;
+}
+
+h2.entrant-name {
+    margin-bottom: 0.2em;
+}
+
+.entrant-email, .entrant-phone, .entrant-birthdate, .entrant-street-address, .entrant-zipcode {
+    display: block;
+}
+.entrant-phone + .entrant-street-address, .entrant-zipcode + .entrant-birthdate {
+    margin-top: 0.5em;
+}
