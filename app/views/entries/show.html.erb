@@ -13,10 +13,14 @@
             <% end %>
         </h2>
         <% if @entry.date_created.present? %>
-            <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %></p>
+            <p class="published-date">Submitted on <%= @entry.date_created.strftime("%A, %B %-d, %Y") %>
         <% else %>
-            <p class="published-date">Submitted on <%= @entry.created_at.strftime("%A, %B %-d, %Y") %></p>
+            <p class="published-date">Submitted on <%= @entry.created_at.strftime("%A, %B %-d, %Y") %>
         <% end %>
+            <% if @entry.location.present?%> 
+                from <%= @entry.location %>
+            <% end %>
+        </p>
         <span class="entrant-email"><%= @entry.entrant.try(:email) %></span>
         <span class="entrant-phone"><%= @entry.entrant.try(:phone) %></span>
         <span class="entrant-street-address"><%= @entry.entrant.try(:street_address) %></span>

@@ -62,7 +62,8 @@ The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint
         },
         "entry": {
             "s3_uri": "#{s3_uri}",
-            "date_created": "#{date_created}"
+            "date_created": "#{date_created}",
+            "location": "#{location}"
         }
     },
     #{guidX}: {
@@ -76,7 +77,8 @@ The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint
         },
         "entry": {
             "s3_uri": "#{s3_uri}",
-            "date_created": "#{date_created}"
+            "date_created": "#{date_created}",
+            "location": "#{location}"
         }
     }
 }

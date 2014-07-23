@@ -13,7 +13,8 @@ describe 'Warrior Dash API' do
         data["#{guid}"] = {
             entry: {
                 s3_uri: entry.s3_uri,
-                date_created: entry.date_created
+                date_created: entry.date_created,
+                location: entry.location
                 },
             entrant: {
                 name: entrant.name,
@@ -53,7 +54,8 @@ describe 'Warrior Dash API' do
         data["#{guid}"] = {
             entry: {
                 s3_uri: entry.s3_uri,
-                date_created: entry.date_created
+                date_created: entry.date_created,
+                location: entry.location
                 },
             entrant: {
                 name: entrant.name,

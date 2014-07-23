@@ -67,6 +67,7 @@ class EntryForm
             if entry.new_record?
                 entry.s3_uri = value[:entry][:s3_uri]
                 entry.date_created = value[:entry][:date_created]
+                entry.location = value[:entry][:location]
                 entry.entrant_id = entrant.id
                 if entry.save
                     entry.queue_processing

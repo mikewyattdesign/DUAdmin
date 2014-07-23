@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702213053) do
+ActiveRecord::Schema.define(version: 20140723155841) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140702213053) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rating",             default: 0
+    t.string   "location"
   end
 
   add_index "entries", ["entrant_id"], name: "index_entries_on_entrant_id"

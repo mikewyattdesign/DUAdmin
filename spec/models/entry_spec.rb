@@ -23,4 +23,8 @@ describe Entry do
     entry.process
     expect(entry.video.url(:thumb)).to_not be_nil
   end
+
+  it 'responds to a location' do
+    expect(build(:entry)).to respond_to(:location)
+  end
 end
