@@ -8,6 +8,8 @@ module Api
                 data = params[:warrior_dash]
                 submission = EntryForm.new(data)
                 submission.process
+                headers['Access-Control-Allow-Origin'] = '*'
+                headers['Access-Control-Request-Method'] = 'POST'
                 render json: submission.result.to_json, status: 201
             end
 
