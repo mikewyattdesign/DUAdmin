@@ -7,8 +7,8 @@ require 'rack/cors'
 use Rack::Cors do
     allow do
         origins '*'
-        resource '*'
-            headers: :any
-            methods: [:post]
+        resource '*',
+            :headers => :any,
+            :methods => [:post]
     end
 end
