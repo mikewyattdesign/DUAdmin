@@ -48,6 +48,9 @@ gem 'paperclip-ffmpeg', '1.2.0'
 # Use Delayed Job for background processing
 gem 'delayed_job_active_record', '4.0.1'
 
+# Use Rack CORS to allow Cross Domain Data Retrieval from the Facebook App
+gem 'rack-cors', require: 'rack/cors'
+
 group :development do
     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
     gem 'spring'
