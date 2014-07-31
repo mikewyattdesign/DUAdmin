@@ -48,4 +48,18 @@ feature 'Video Browsing' do
             page.should have_content(entry.location)
         end
     end
+
+    context 'when there are too many entries to fit on one page' do
+        before do
+            200.times do
+                create(:entry)
+            end
+        end
+
+        scenario 'there should be no more than 100 entries on one page' do
+            visit root_path
+            puts page.body
+            expect(page.all('.entry').count).to eql 100
+        end
+    end
 end

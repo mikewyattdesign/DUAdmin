@@ -5,15 +5,16 @@ class EntriesController < ApplicationController
         if params[:rating]
             if Entry.ratings.include?(params[:rating])
                 rating = Entry.ratings["#{params[:rating]}"]
-                @entries = Entry.where(rating: rating).includes(:entrant).order(created_at: :desc)
+                entries = Entry.where(rating: rating).includes(:entrant).order(created_at: :desc)
             else
-                @entries = Entry.all
+                entries = Entry.all
             end
             # render text: params[:rating]
         else
-            @entries = Entry.all.includes(:entrant).order(created_at: :desc)
+            entries = Entry.all.includes(:entrant).order(created_at: :desc)
         end
-        @numEntries = @entries.count
+        @numEntries = entries.count
+        @entries = entries.page params[:page]
     end
 
     def show

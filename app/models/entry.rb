@@ -8,6 +8,8 @@ class Entry < ActiveRecord::Base
 
     default_scope { where('entrant_id IS NOT NULL') }
 
+    paginates_per 100
+
     def process
         self.video = s3_uri
         video.reprocess!
@@ -18,6 +20,4 @@ class Entry < ActiveRecord::Base
     def queue_processing
         delay.process
     end
-
-
 end
