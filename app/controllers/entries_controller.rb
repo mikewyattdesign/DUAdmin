@@ -1,14 +1,16 @@
 class EntriesController < ApplicationController
+    http_basic_authenticate_with name: 'group360', password: 'z2#j$n4d#AXEFWWS9c4x'
+
     def index
         if params[:rating]
             if Entry.ratings.include?(params[:rating])
                 rating = Entry.ratings["#{params[:rating]}"]
                 @entries = Entry.where(rating: rating).includes(:entrant).order(created_at: :desc)
-            else    
+            else
                 @entries = Entry.all
             end
             # render text: params[:rating]
-        else 
+        else
             @entries = Entry.all.includes(:entrant).order(created_at: :desc)
         end
         @numEntries = @entries.count

@@ -1,6 +1,10 @@
 require "spec_helper"
 
 feature "Video Browsing" do
+    before(:each) do
+        basic_auth
+    end
+
     context "There are no entries" do
         before {
             Entry.delete_all
@@ -34,12 +38,12 @@ feature "Video Browsing" do
             entry = Entry.find(entry_id)
 
             visit root_path
-            
+
             # Click on the entry
             find("a[data-entry-id='#{entry.id}']").click
-            
+
             expect(current_path).to eq(entry_path(entry))
-            page.should have_css("[data-entry-id='#{entry.id}'] video")            
+            page.should have_css("[data-entry-id='#{entry.id}'] video")
         end
     end
 end

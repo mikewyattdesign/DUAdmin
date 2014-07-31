@@ -1,6 +1,10 @@
 require "spec_helper"
 
 feature "Video Rating" do
+    before(:each) do
+        basic_auth
+    end
+
     before {
         30.times do
             create(:entry)
