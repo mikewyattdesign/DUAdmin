@@ -29,6 +29,7 @@ feature 'Video Browsing' do
             Entry.order(date_created: :asc).limit(100).each do | entry |
                 page.should have_css("[data-entry-id='#{entry.id}']")
                 page.should have_css("[data-entry-id='#{entry.id}'] img.entry-poster")
+                page.should have_content(entry.location)
             end
         end
 
@@ -44,6 +45,7 @@ feature 'Video Browsing' do
 
             expect(current_path).to eq(entry_path(entry))
             page.should have_css("[data-entry-id='#{entry.id}'] video")
+            page.should have_content(entry.location)
         end
     end
 end
