@@ -42,6 +42,8 @@ RSpec.configure do |config|
   # Include Paperclip syntax to simplify testing of paperclip features
   config.include Paperclip::Shoulda::Matchers
 
+  config.include Features::SessionHelpers, type: :feature
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
