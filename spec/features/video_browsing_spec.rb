@@ -1,28 +1,28 @@
-require "spec_helper"
+require 'spec_helper'
 
-feature "Video Browsing" do
+feature 'Video Browsing' do
     before(:each) do
         basic_auth
     end
 
-    context "There are no entries" do
-        before {
+    context 'when there are no entries' do
+        before do
             Entry.delete_all
             Entrant.delete_all
-        }
-        scenario "Admin tries to browse with no videos" do
+        end
+        scenario 'Admin tries to browse with no videos' do
             visit root_path
             page.should have_css('.no-entries')
         end
     end
 
-    context "There are entries" do
-        before {
+    context 'when there are entries' do
+        before do
             30.times do
                 create(:entry)
             end
-        }
-        scenario "Admin views video thumbnails" do
+        end
+        scenario 'Admin views video thumbnails' do
             visit root_path
             page.should have_css('.entry')
 
@@ -32,7 +32,7 @@ feature "Video Browsing" do
             end
         end
 
-        scenario "Admin views individual video" do
+        scenario 'Admin views individual video' do
             # Choose an entry to inspect at random
             entry_id = Entry.all.pluck(:id).sample
             entry = Entry.find(entry_id)
