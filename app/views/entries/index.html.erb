@@ -3,6 +3,8 @@
 <% if @entries.length == 0 %>
     <div class="no-entries"></div>
 <% else %>
+    <%= paginate @entries %>
+
     <div class="cards">
         <%= render @entries %>
     </div>
