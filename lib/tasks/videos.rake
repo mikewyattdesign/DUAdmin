@@ -10,7 +10,7 @@ namespace :videos do
             puts response.code
 
             if response.code == '200' && !entry.video_present
-                puts "Marking #{entry.guid} as present"
+                puts "Marking #{entry.s3_uri} as present"
                 entry.video_present = true
                 entry.save
             end
