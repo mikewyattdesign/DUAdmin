@@ -5,6 +5,7 @@ namespace :videos do
         Entry.all.each do |entry|
             url = URI.parse(entry.s3_uri)
             request = Net::HTTP.new(url.host, url.port)
+            request.use_ssl = true
             response = request.request_head(url.path)
             puts response.code
             if response.code == 200 && !entry.video_present
