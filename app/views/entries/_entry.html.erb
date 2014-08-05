@@ -9,7 +9,13 @@
         </div>
     <% end %>
     <div class="card-image">
-        <%= image_tag entry.video.url(:thumb), class: "entry-poster img-responsive" %>
+        <% if entry.video_present %>
+            <%= image_tag entry.video.url(:thumb), class: "entry-poster img-responsive" %>
+        <% else %>
+            <div class="video-not-found">
+                Video not found
+            </div>
+        <% end %>
     </div>
     <div class="card-header entrant-name"><%= entry.entrant.name %></div>
     <div class="card-copy">

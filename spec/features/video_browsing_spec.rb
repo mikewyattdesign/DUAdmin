@@ -49,6 +49,19 @@ feature 'Video Browsing' do
         end
     end
 
+    context 'when entries are not present on S3' do
+        scenario '"Video not found" should be present on the video card' do
+            entry = create(:entry, video_present: false)
+
+            visit root_path
+
+            page.should have_css("[data-entry-id='#{entry.id}']")
+            page.should have_content(entry.location)
+
+            expect(find("[data-entry-id='#{entry.id}']")).to have_content ('Video not found')
+        end
+    end
+
     context 'when there are too many entries to fit on one page' do
         before do
             200.times do
@@ -58,7 +71,6 @@ feature 'Video Browsing' do
 
         scenario 'there should be no more than 100 entries on one page' do
             visit root_path
-            puts page.body
             expect(page.all('.entry').count).to eql 100
         end
     end

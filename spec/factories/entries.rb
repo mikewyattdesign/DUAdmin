@@ -9,5 +9,6 @@ FactoryGirl.define do
     sequence(:s3_uri){|n| "https://s3.amazonaws.com/shocktop-du-staging/test/IMG_000#{n%3}.MOV"}
     date_created { 1.day.ago }
     location { Faker::Address.city }
+    video_present true
   end
 end
