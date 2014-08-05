@@ -12,3 +12,11 @@ h2.entrant-name {
 .entrant-phone + .entrant-street-address, .entrant-zipcode + .entrant-birthdate {
     margin-top: 0.5em;
 }
+
+.video-not-found {
+    background: darkred;
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    text-align: center;
+}
