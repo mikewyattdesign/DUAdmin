@@ -8,7 +8,8 @@ namespace :videos do
             request.use_ssl = true
             response = request.request_head(url.path)
             puts response.code
-            if response.code == 200 && !entry.video_present
+
+            if response.code == '200' && !entry.video_present
                 puts "Marking #{entry.guid} as present"
                 entry.video_present = true
                 entry.save
