@@ -16,4 +16,11 @@ namespace :videos do
             end
         end
     end
+
+    task reprocess: :environment do
+        ActiveRecord::Base.establish_connection ENV['DATABASE_URL']
+        Entry.where(processed: false, video_present: true).each do |entry|
+            entry.process
+        end
+    end
 end

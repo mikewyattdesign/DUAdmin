@@ -93,6 +93,9 @@ group :development, :test do
 
     # Use daemons for delayed job in development
     gem 'daemons', '1.1.9'
+
+    # Load environment variables from the .env file
+    gem 'dotenv-rails', '0.11.1'
 end
 
 group :test do
