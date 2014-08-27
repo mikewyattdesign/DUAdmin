@@ -74,4 +74,23 @@ feature 'Video Browsing' do
             expect(page.all('.entry').count).to eql 100
         end
     end
+
+    context 'when there are some Facebook entries' do
+        before do
+            15.times do
+                create(:entry)
+                create(:entry, location: 'Facebook')
+            end
+        end
+
+        scenario 'there should be a filter that shows me only Facebook entries' do
+            visit root_path
+            expect(page.all('.entry').count).to eql 30
+            expect(page.body).to have_link "15 Facebook entries"
+
+            click_link 'Facebook entries'
+            expect(page.all('.entry').count).to eql 15
+            expect(page.body).to have_link "15 Facebook entries"
+        end
+    end
 end

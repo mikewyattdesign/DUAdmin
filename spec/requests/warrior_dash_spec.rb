@@ -43,7 +43,7 @@ describe 'Warrior Dash API' do
         expect(result[:entrants].length).to eq(1)
     end
 
-    it 'Accepts multiple submissions' do 
+    it 'Accepts multiple submissions' do
         NUM_ENTRIES = 500
         data = {}
 

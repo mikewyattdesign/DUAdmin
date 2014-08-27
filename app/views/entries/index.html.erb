@@ -1,4 +1,7 @@
-<h2><%= pluralize(@numEntries, "entry") %></h2>
+<h2><%= pluralize(@entries_count, "entry") %></h2>
+<ul>
+    <li><%= link_to "#{@facebook_entries_count} Facebook entries", entries_facebook_path %></li>
+</ul>
 
 <% if @entries.length == 0 %>
     <div class="no-entries"></div>
