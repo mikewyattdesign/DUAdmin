@@ -13,8 +13,19 @@ class EntriesController < ApplicationController
         else
             entries = Entry.all.includes(:entrant).order(created_at: :desc)
         end
-        @numEntries = entries.count
+        @entries_count = entries.count
+        @facebook_entries_count = entries.where(location: 'Facebook').count
         @entries = entries.page params[:page]
+    end
+
+    def facebook
+        entries = Entry.all
+        @entries_count = entries.count
+        @entries = entries.where(location: 'Facebook')
+        @facebook_entries_count = @entries.count
+        @entries = @entries.page params[:page]
+
+        render :index
     end
 
     def show
