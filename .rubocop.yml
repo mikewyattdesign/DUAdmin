@@ -2,3 +2,7 @@ IndentationWidth:
     Enabled: false
 IndentHash:
     Enabled: false
+IndentArray:
+    Enabled: false
+Style/FileName:
+    Enabled: false
