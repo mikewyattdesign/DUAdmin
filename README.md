@@ -36,14 +36,6 @@ Promote the staging app to production.
 heroku pipeline:promote -a du-admin-staging
 ```
 
-
-## Labor ##
-
-50/50 Split between:
-
-* 704887 (Shock Top Warrior Dash App)
-* 705507 (Shock Top DU Facebook App)
-
 ## Warrior Dash POST JSON ##
 The Warrior Dash App is expected to post data to the '/api/warriordash' endpoint in the following format:
 
